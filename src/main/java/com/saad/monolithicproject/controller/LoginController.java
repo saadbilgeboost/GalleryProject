@@ -48,8 +48,9 @@ public class LoginController {
             return modelAndView;
         }else{
             System.out.println("Wrong username or password.");
+            modelAndView.setViewName("redirect:loginpage");
+            return modelAndView;
         }
-        return null;
     }
     @GetMapping(REGISTER)
     public ModelAndView register(){
@@ -59,7 +60,7 @@ public class LoginController {
         return modelAndView;
     }
     @GetMapping(DOREGISTER)
-    public ModelAndView doRegister (String name, String surname, String email, String username, String password, String gender, String birthdate) {
+    public ModelAndView doRegister (String name, String surname, String email, String username, String password, String gender, String birthdate, String address, String telephone) {
         userService.save(UserSaveRequestDto.builder()
                 .name(name)
                 .surname(surname)
@@ -67,7 +68,9 @@ public class LoginController {
                 .username(username)
                 .password(password)
                 .gender(gender(gender))
-                .birthdate(dateFormatter(birthdate)).build());
+                .birthdate(dateFormatter(birthdate))
+                .address(address)
+                .telephone(telephone).build());
         return new ModelAndView("redirect:loginpage");
     }
     public Gender gender(String gender){

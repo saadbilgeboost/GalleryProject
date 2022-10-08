@@ -25,4 +25,6 @@ public class UserSaveRequestDto {
     @NotNull
     @Enumerated(EnumType.STRING)
     Gender gender;
+    String address;
+    String telephone;
 }

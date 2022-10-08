@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
+    <title th:text="${user.getUsername()}"></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/home/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
@@ -11,13 +11,14 @@
 <body th:if="${user.getGender().toString().equals('FEMALE')}" style="background-color: pink">
 <form action="home" method="get">
     <div class="photo-gallery" style="background-color: pink">
-        <div class="container">
-                <h2 class="text-center" th:text= "${user.getName()} + ' '+${user.getSurname()}"></h2>
+        <div class="container" style="text-decoration-color: #b3d7ff">
+            <h2 class="text-center" th:text= "${user.getName()} + ' '+${user.getSurname()}"></h2>
+            <h2 class="text-center"> Photo Gallery </h2>
+        </div>
+            <div class="row" style="margin-left: 25px"> <h4 class="text-left" th:text="'Date of Birth: '+${user.getBirthdate().toString()}"></h4></div>
+            <div class="row" style="margin-left: 25px"> <h4 class="text-left" th:text="'City: '+${user.getAddress()}"></h4></div>
 
-                <p class="text-center"> </p>
-            </div>
-            <div class="row"> <h3 class="text-left" th:text="'Date of Birth: '+${user.getBirthdate().toString()}"></h3></div>
-            <div class="row photos">
+            <div class="row photos" style="margin: 10px" >
                 <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img1/img1.jpg" data-lightbox="photos"><img class="img-fluid" src="/img1/img1.jpg"></a></div>
                 <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img1/img2.jpg" data-lightbox="photos"><img class="img-fluid" src="/img1/img2.jpg"></a></div>
                 <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img1/img3.jpg" data-lightbox="photos"><img class="img-fluid" src="/img1/img3.jpg"></a></div>
@@ -39,30 +40,45 @@
                 <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img1/img19.jpg" data-lightbox="photos"><img class="img-fluid" src="/img1/img19.jpg"></a></div>
                 <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img1/img20.jpg" data-lightbox="photos"><img class="img-fluid" src="/img1/img20.jpg"></a></div>
             </div>
-        </div>
     </div>
 </form>
 </body>
-<body th:if="${user.getGender().toString().equals('MALE')}" style="background-color: #b3d7ff">
+<body th:if="${user.getGender().toString().equals('MALE')}" style="background-color: lightblue">
 <form action="home" method="get">
-    <div class="photo-gallery" style="background-color: #b3d7ff" >
+    <div class="photo-gallery" style="background-color: lightblue">
         <div class="container">
-            <div class="intro">
-                <h2 class="text-center" th:text= "${user.getName()} + ' '+${user.getSurname()}"></h2>
-            </div>
-            <div class="row photos">
-                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/rsz_male-1354358_1280.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/rsz_male-1354358_1280.jpg"></a></div>
-                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/rsz_male-1354358_1280.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/rsz_male-1354358_1280.jpg"></a></div>
-                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/rsz_male-1354358_1280.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/rsz_male-1354358_1280.jpg"></a></div>
-                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/rsz_male-1354358_1280.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/rsz_male-1354358_1280.jpg"></a></div>
-                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/rsz_male-1354358_1280.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/rsz_male-1354358_1280.jpg"></a></div>
-            </div>
+            <h2 class="text-center" th:text= "${user.getName()} + ' '+${user.getSurname()}"></h2>
+            <h2 class="text-center"> Photo Gallery </h2>
+        </div>
+        <div class="row" style="margin-left: 25px"> <h4 class="text-left" th:text="'Date of Birth: '+${user.getBirthdate().toString()}"></h4></div>
+        <div class="row" style="margin-left: 25px"> <h4 class="text-left" th:text="'City: '+${user.getAddress()}"></h4></div>
+        <div class="row photos" style="margin: 10px">
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img1.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img1.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img2.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img2.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img3.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img3.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img4.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img4.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img5.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img5.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img6.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img6.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img7.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img7.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img8.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img8.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img9.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img9.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img10.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img10.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img11.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img11.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img12.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img12.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img13.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img13.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img14.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img14.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img15.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img15.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img16.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img16.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img17.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img17.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img18.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img18.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img19.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img19.jpg"></a></div>
+            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="/img2/img20.jpg" data-lightbox="photos"><img class="img-fluid" src="/img2/img20.jpg"></a></div>
         </div>
     </div>
-</div>
+    </div>
 </form>
 </body>
-
+<body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
